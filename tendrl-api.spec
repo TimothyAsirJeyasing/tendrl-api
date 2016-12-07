@@ -53,14 +53,14 @@ Tendrl API httpd configuration.
 %setup
 
 %install
-install -dm 0755 --directory $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/tendrl/errors
+install -dm 0755 --directory $RPM_BUILD_ROOT%{_datadir}/tendrl-api/lib/tendrl/errors
 install -dm 0755 --directory $RPM_BUILD_ROOT%{_datadir}/doc/tendrl/config
-install -dm 0755 --directory $RPM_BUILD_ROOT%{_datadir}/%{name}/public
-install -dm 0755 --directory $RPM_BUILD_ROOT%{_datadir}/%{name}/.deploy
-install -Dm 0644 *.ru *.rb Gemfile* $RPM_BUILD_ROOT%{_datadir}/%{name}
-install -Dm 0644 lib/*.rb $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/
-install -Dm 0644 lib/tendrl/*.rb $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/tendrl/
-install -Dm 0644 lib/tendrl/errors/*.rb $RPM_BUILD_ROOT%{_datadir}/%{name}/lib/tendrl/errors/
+install -dm 0755 --directory $RPM_BUILD_ROOT%{_datadir}/tendrl-api/public
+install -dm 0755 --directory $RPM_BUILD_ROOT%{_datadir}/tendrl-api/.deploy
+install -Dm 0644 *.ru *.rb Gemfile* $RPM_BUILD_ROOT%{_datadir}/tendrl-api
+install -Dm 0644 lib/*.rb $RPM_BUILD_ROOT%{_datadir}/tendrl-api/lib/
+install -Dm 0644 lib/tendrl/*.rb $RPM_BUILD_ROOT%{_datadir}/tendrl-api/lib/tendrl/
+install -Dm 0644 lib/tendrl/errors/*.rb $RPM_BUILD_ROOT%{_datadir}/tendrl-api/lib/tendrl/errors/
 install -Dm 0644 tendrl-apid.service $RPM_BUILD_ROOT%{_unitdir}/tendrl-apid.service
 install -Dm 0644 config/etcd.sample.yml $RPM_BUILD_ROOT%{_sysconfdir}/tendrl/etcd.yml
 install -Dm 0644 README.adoc Rakefile $RPM_BUILD_ROOT%{_datadir}/doc/tendrl
@@ -72,7 +72,7 @@ setsebool -P httpd_can_network_connect 1
 
 %files
 %dir %{_sysconfdir}/tendrl
-%{_datadir}/%{name}/
+%{_datadir}/tendrl-api/
 %{_unitdir}/tendrl-apid.service
 %{_sysconfdir}/tendrl/etcd.yml
 
